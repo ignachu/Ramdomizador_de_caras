@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <script type="text/javascript" src="js/processing.js"> </script>
+        <meta name="description" content="Una guía interactiva de primeros pasos para Brackets.">
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+
+        <h1>PRIMEROS PASOS CON BRACKETS</h1>
+      <script type="text/processing">
+        
+        PImage[] caras = new PImage[46];
+PImage[] ojos = new PImage[23];
+PImage[] narices = new PImage[23];
+PImage[] bocas = new PImage[23];
+PImage[] pelos = new PImage[23];
+
+PImage fondo;
+PImage marco;
+PImage titulo;
+
+float px;
+float py;
+  
+void setup() {
+  
+   noStroke();
+   fill(102);
+   size (1280, 720);
+   imageMode(CENTER);
+   fondo = loadImage("fondo/fondo.png");
+  marco = loadImage("marco/marco.png");
+ marco.resize(1120,0);
+ titulo = loadImage("titulo/titulo.png");
+ titulo.resize(1920,0);
+ 
+for (int i = 0; i < caras.length; i++) {
+ caras[i] = loadImage("caras/caras"+i+".png");
+ caras[i].resize(1000,0);
+}
+  for (int i = 0; i < ojos.length; i++) {
+  ojos[i] = loadImage("ojos/ojos"+i+".png");
+  ojos[i].resize(1000,0);
+  }
+  for (int i = 0; i < narices.length; i++) {
+  narices[i] = loadImage("narices/narices"+i+".png");
+  narices[i].resize(1000,0);
+  }
+  for (int i = 0; i < bocas.length; i++) {
+  bocas[i] = loadImage("bocas/bocas"+i+".png");
+  bocas[i].resize(1000,0);
+  }
+  for (int i = 0; i < pelos.length; i++) {
+  pelos[i] = loadImage("pelos/pelos"+i+".png");
+  pelos[i].resize(1000,0);
+  }
+
+
+
+noLoop();
+
+}
+
+
+void draw() {
+ background(255);
+ 
+  
+  image(caras[(int)random(caras.length)],displayWidth / 2, displayHeight / 2);
+  image(bocas[(int)random(bocas.length)],displayWidth / 2, displayHeight / 2);
+  image(narices[(int)random(narices.length)],displayWidth / 2, displayHeight / 2);
+  image(ojos[(int)random(ojos.length)],displayWidth / 2, displayHeight / 2);
+  image(pelos[(int)random(pelos.length)],displayWidth / 2, displayHeight / 2);
+
+//tint(255,127);
+image(marco,displayWidth/2, displayHeight/2);
+image(fondo,displayWidth/2, displayHeight/2);
+image(titulo,displayWidth/2, displayHeight/2);
+}
+
+
+void mousePressed() {
+ print("OK ");
+  redraw();
+
+}
+        
+        </script>
+        
+       <canvas id="sketch" style="border: 1px solid black;"></canvas>
+
+     
+
+    </body>
+</html>
